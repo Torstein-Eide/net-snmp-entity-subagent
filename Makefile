@@ -1,9 +1,12 @@
-# Build the entity AgentX subagent against the local net-snmp tree.
-# Run from the top of the net-snmp source directory:
-#   make -f entity_subagent.mk          # dynamically linked (default)
-#   make -f entity_subagent.mk static   # statically linked, portable binary
+# Build the entity AgentX subagent against a sibling net-snmp source tree.
+# Run from this directory:
+#   make          # dynamically linked (default)
+#   make static   # statically linked, portable binary
+#
+# Expects ../net-snmp to be a configured and built net-snmp tree.
 
-SRCDIR  := $(shell pwd)
+HERE    := $(dir $(abspath $(lastword $(MAKEFILE_LIST))))
+SRCDIR  := $(realpath $(HERE)../net-snmp)
 
 CFLAGS  := -g -Wall \
            -I$(SRCDIR)/include \
@@ -32,12 +35,12 @@ LDFLAGS_STATIC := \
 
 # Object files from the already-built entity module
 ENTITY_OBJS := \
-    agent/mibgroup/hardware/entity/entity.o \
-    agent/mibgroup/hardware/entity/entPhysicalTable.o \
-    agent/mibgroup/hardware/entity/entAliasMappingTable.o \
-    agent/mibgroup/hardware/entity/entLastChangeTime.o \
-    agent/mibgroup/hardware/entity/entLogicalTable.o \
-    agent/mibgroup/hardware/entity/data_access/entity_linux.o
+    $(SRCDIR)/agent/mibgroup/hardware/entity/entity.o \
+    $(SRCDIR)/agent/mibgroup/hardware/entity/entPhysicalTable.o \
+    $(SRCDIR)/agent/mibgroup/hardware/entity/entAliasMappingTable.o \
+    $(SRCDIR)/agent/mibgroup/hardware/entity/entLastChangeTime.o \
+    $(SRCDIR)/agent/mibgroup/hardware/entity/entLogicalTable.o \
+    $(SRCDIR)/agent/mibgroup/hardware/entity/data_access/entity_linux.o
 
 entity_subagent: entity_subagent.o $(ENTITY_OBJS)
 	$(CC) -o $@ $^ $(LDFLAGS_SHARED)

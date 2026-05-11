@@ -1,2 +1,5 @@
 entity_subagent
 entity_subagent.o
+agent
+snmplib
+include
