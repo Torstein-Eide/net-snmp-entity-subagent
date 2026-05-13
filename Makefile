@@ -1,17 +1,22 @@
 # Build the entity AgentX subagent against a sibling net-snmp source tree.
 # Run from this directory:
-#   make          # dynamically linked (default)
-#   make static   # statically linked, portable binary
+#   make                                          # static (default)
+#   make shared                                   # dynamically linked
+#   make CC=arm-linux-gnueabihf-gcc               # cross-compile
+#   make OUTPUT=entity_subagent-arm               # custom output name
 #
 # Expects ../net-snmp to be a configured and built net-snmp tree.
 
 HERE    := $(dir $(abspath $(lastword $(MAKEFILE_LIST))))
 SRCDIR  := $(realpath $(HERE)../net-snmp)
+OUTPUT  ?= entity_subagent
 
-CFLAGS  := -g -Wall \
-           -I$(SRCDIR)/include \
-           -I$(SRCDIR) \
-           -DHAVE_CONFIG_H
+CPPFLAGS := \
+    -I$(SRCDIR)/include \
+    -I$(SRCDIR) \
+    -DHAVE_CONFIG_H
+
+CFLAGS  += -g -Wall -MMD -MP
 
 # Shared-library build flags
 LDFLAGS_SHARED := \
@@ -33,7 +38,7 @@ LDFLAGS_STATIC := \
     -Wl,-Bdynamic \
     -lm -lssl -lcrypto -lpci -lnl-route-3 -lnl-3 -lsensors -lperl
 
-# Object files from the already-built entity module
+# Object files from the entity module (rebuilt via the net-snmp Makefile when stale)
 ENTITY_OBJS := \
     $(SRCDIR)/agent/mibgroup/hardware/entity/entity.o \
     $(SRCDIR)/agent/mibgroup/hardware/entity/entPhysicalTable.o \
@@ -42,16 +47,27 @@ ENTITY_OBJS := \
     $(SRCDIR)/agent/mibgroup/hardware/entity/entLogicalTable.o \
     $(SRCDIR)/agent/mibgroup/hardware/entity/data_access/entity_linux.o
 
-entity_subagent: entity_subagent.o $(ENTITY_OBJS)
-	$(CC) -o $@ $^ $(LDFLAGS_SHARED)
+# Central header — all entity .o files must be rebuilt when it changes
+ENTITY_H := $(SRCDIR)/agent/mibgroup/hardware/entity/entity.h
+
+all: static
 
 static: entity_subagent.o $(ENTITY_OBJS)
-	$(CC) -o entity_subagent $^ $(LDFLAGS_STATIC)
+	$(CC) -o $(OUTPUT) $^ $(LDFLAGS_STATIC)
+
+shared: entity_subagent.o $(ENTITY_OBJS)
+	$(CC) -o $(OUTPUT) $^ $(LDFLAGS_SHARED)
 
 entity_subagent.o: entity_subagent.c
-	$(CC) $(CFLAGS) -c -o $@ $<
+	$(CC) $(CPPFLAGS) $(CFLAGS) -c -o $@ $<
+
+# Rebuild each entity .o via the net-snmp Makefile when its source or entity.h changes
+$(ENTITY_OBJS): %.o: %.c $(ENTITY_H)
+	$(MAKE) -C $(SRCDIR) $(@:$(SRCDIR)/%=%)
 
 clean:
-	rm -f entity_subagent entity_subagent.o
+	rm -f $(OUTPUT) entity_subagent.o entity_subagent.d
 
-.PHONY: clean static
+-include entity_subagent.d
+
+.PHONY: all static shared clean
