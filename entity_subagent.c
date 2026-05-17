@@ -167,6 +167,15 @@ int main(int argc, char **argv)
         snmp_set_do_debugging(1);
     }
 
+    /*
+     * Ping the AgentX master every 15 s.  When the master is gone the ping
+     * times out, triggering agentx_reopen_session() inside the library which
+     * reconnects and re-registers all OIDs once snmpd comes back.
+     * Without this the subagent sits silently disconnected forever.
+     */
+    netsnmp_ds_set_int(NETSNMP_DS_APPLICATION_ID,
+                       NETSNMP_DS_AGENT_AGENTX_PING_INTERVAL, 15);
+
     init_snmp("entity_subagent");
 
     signal(SIGTERM, stop_handler);
