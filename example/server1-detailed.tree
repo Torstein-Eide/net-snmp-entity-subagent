@@ -1,0 +1,758 @@
+└── .-1 [1:chassis] Super Server
+    description: System Chassis
+    hardware-revision: 0123456789
+    serial: XXXXXX
+    manufacturer: Supermicro
+    is-fru: true(1)
+    uris: "file:///sys/class/dmi/id"
+    uuid: XXXXXX
+    │
+    └── .1 [10:backplane] X11SAE-M
+        description: Baseboard
+        hardware-revision: 1.02
+        firmware-revision: 2.3
+        serial: XXXXXX
+        manufacturer: Supermicro
+        is-fru: true(1)
+        uris: "file:///sys/class/dmi/id"
+        │
+        ├── .-1 [100:container] memory
+        │   description: System Memory (62.6 GiB)
+        │   is-fru: false(2)
+        │   uris: "file:///sys/devices/system/memory file:///proc/meminfo"
+        │   │
+        │   ├── .1 [110:other] HMA82GU7AFR8N-UH (dimm0)
+        │   │   description: Memory Device 16 GB @ 2400 MT/s
+        │   │   serial: XXXXXX
+        │   │   manufacturer: SK Hynix
+        │   │   alias: dmi-memory:0:DIMMA1
+        │   │   is-fru: false(2)
+        │   │
+        │   ├── .2 [111:other] 9965669-027.A00G (dimm1)
+        │   │   description: Memory Device 16 GB @ 2400 MT/s
+        │   │   serial: XXXXXX
+        │   │   manufacturer: Kingston
+        │   │   alias: dmi-memory:1:DIMMA2
+        │   │   is-fru: false(2)
+        │   │
+        │   ├── .3 [112:other] HMA82GU7AFR8N-UH (dimm2)
+        │   │   description: Memory Device 16 GB @ 2400 MT/s
+        │   │   serial: XXXXXX
+        │   │   manufacturer: SK Hynix
+        │   │   alias: dmi-memory:2:DIMMB1
+        │   │   is-fru: false(2)
+        │   │
+        │   └── .4 [113:other] 9965669-027.A00G (dimm3)
+        │       description: Memory Device 16 GB @ 2400 MT/s
+        │       serial: XXXXXX
+        │       manufacturer: Kingston
+        │       alias: dmi-memory:3:DIMMB2
+        │       is-fru: false(2)
+        │
+        ├── .-1 [200:cpu] Intel(R) Pentium(R) CPU G4620 @ 3.70GHz (cpu-package0)
+        │   description: CPU package 0, 2 cores, 4 threads
+        │   hardware-revision: family 6 model 158 stepping 9
+        │   firmware-revision: microcode 0xf8
+        │   is-fru: true(1)
+        │   uris: "file:///sys/devices/system/cpu"
+        │   │
+        │   ├── .-1 [7340:other] coretemp (hwmon7)
+        │   │   description: CPU thermal monitor
+        │   │   is-fru: false(2)
+        │   │   uris: "file:///sys/class/hwmon/hwmon7 file:///sys/devices/platform/coretemp.0/hwmon/hwmon7"
+        │   │   │
+        │   │   ├── .1 [7341:sensor] temp1
+        │   │   │   description: Temperature sensor: Package id 0
+        │   │   │   is-fru: false(2)
+        │   │   │   uris: "file:///sys/class/hwmon/hwmon7/temp1_input file:///sys/devices/platform/coretemp.0/hwmon/hwmon7/temp1_input"
+        │   │   │   alias-mapping: LM-SENSORS-MIB::lmTempSensorsIndex.6
+        │   │   │
+        │   │   ├── .2 [7342:sensor] temp2
+        │   │   │   description: Temperature sensor: Core 0
+        │   │   │   is-fru: false(2)
+        │   │   │   uris: "file:///sys/class/hwmon/hwmon7/temp2_input file:///sys/devices/platform/coretemp.0/hwmon/hwmon7/temp2_input"
+        │   │   │   alias-mapping: LM-SENSORS-MIB::lmTempSensorsIndex.7
+        │   │   │
+        │   │   └── .3 [7343:sensor] temp3
+        │   │       description: Temperature sensor: Core 1
+        │   │       is-fru: false(2)
+        │   │       uris: "file:///sys/class/hwmon/hwmon7/temp3_input file:///sys/devices/platform/coretemp.0/hwmon/hwmon7/temp3_input"
+        │   │       alias-mapping: LM-SENSORS-MIB::lmTempSensorsIndex.8
+        │   │
+        │   ├── .-1 [19000:container] cpu-package0-logical
+        │   │   description: Logical CPUs
+        │   │   is-fru: false(2)
+        │   │   uris: "file:///sys/devices/system/cpu"
+        │   │   │
+        │   │   ├── .0 [20000:cpu] cpu0
+        │   │   │   description: Logical CPU 0, core 0.0
+        │   │   │   is-fru: false(2)
+        │   │   │   uris: "file:///sys/devices/system/cpu/cpu0"
+        │   │   │
+        │   │   ├── .1 [20001:cpu] cpu1
+        │   │   │   description: Logical CPU 1, core 1.0
+        │   │   │   is-fru: false(2)
+        │   │   │   uris: "file:///sys/devices/system/cpu/cpu1"
+        │   │   │
+        │   │   ├── .2 [20002:cpu] cpu2
+        │   │   │   description: Logical CPU 2, core 0.1
+        │   │   │   is-fru: false(2)
+        │   │   │   uris: "file:///sys/devices/system/cpu/cpu2"
+        │   │   │
+        │   │   └── .3 [20003:cpu] cpu3
+        │   │       description: Logical CPU 3, core 1.1
+        │   │       is-fru: false(2)
+        │   │       uris: "file:///sys/devices/system/cpu/cpu3"
+        │   │
+        │   └── .-1 [19500:container] cpu-package0-cache
+        │       description: CPU caches
+        │       is-fru: false(2)
+        │       uris: "file:///sys/devices/system/cpu"
+        │       │
+        │       ├── .0 [300:other] 32K (L1-cache-data)
+        │       │   description: L1 Data cache 32K
+        │       │   is-fru: false(2)
+        │       │   uris: "file:///sys/devices/system/cpu/cpu0/cache/index0"
+        │       │
+        │       ├── .1 [301:other] 32K (L1-cache-instr)
+        │       │   description: L1 Instruction cache 32K
+        │       │   is-fru: false(2)
+        │       │   uris: "file:///sys/devices/system/cpu/cpu0/cache/index1"
+        │       │
+        │       ├── .2 [302:other] 256K (L2-cache)
+        │       │   description: L2 cache 256K
+        │       │   is-fru: false(2)
+        │       │   uris: "file:///sys/devices/system/cpu/cpu0/cache/index2"
+        │       │
+        │       └── .3 [303:other] 3072K (L3-cache)
+        │           description: L3 cache 3072K
+        │           is-fru: false(2)
+        │           uris: "file:///sys/devices/system/cpu/cpu0/cache/index3"
+        │
+        ├── .0 [1001:backplane] Xeon E3-1200 v6/7th Gen Core Processor Host Bridge/DRAM Registers (0000:00:00.0)
+        │   description: Host bridge
+        │   hardware-revision: 0x06
+        │   software-revision: skl_uncore
+        │   manufacturer: Intel Corporation
+        │   is-fru: false(2)
+        │   uris: "file:///sys/bus/pci/devices/0000:00:00.0 file:///sys/devices/pci0000:00/0000:00:00.0 pci:0000:00:00.0"
+        │   │
+        │   ├── .1 [1002:container] 6th-10th Gen Core Processor PCIe Controller (x16) (0000:00:01.0)
+        │   │   description: PCI bridge, x8 5.0 GT/s PCIe
+        │   │   hardware-revision: 0x06
+        │   │   software-revision: pcieport
+        │   │   manufacturer: Intel Corporation
+        │   │   is-fru: false(2)
+        │   │   uris: "file:///sys/bus/pci/devices/0000:00:01.0 file:///sys/devices/pci0000:00/0000:00:01.0 pci:0000:00:01.0"
+        │   │   │
+        │   │   └── .0 [200087:module] Ethernet Controller 10-Gigabit X540-AT2 (0000:01:00.0)
+        │   │       description: Ethernet controller, x8 5.0 GT/s PCIe
+        │   │       hardware-revision: 0x01
+        │   │       software-revision: ixgbe
+        │   │       manufacturer: Intel Corporation
+        │   │       is-fru: false(2)
+        │   │       uris: "file:///sys/bus/pci/devices/0000:01:00.0 file:///sys/devices/pci0000:00/0000:00:01.0/0000:01:00.0 pcislot:0000:01:00 file:///sys/bus/pci/devices/0000:01:00.1 file:///sys/devices/pci0000:00/0000:00:01.0/0000:01:00.1"
+        │   │       │
+        │   │       ├── .1 [200091:port] twisted pair (eno3_1)
+        │   │       │   description: Ethernet interface (10000baseT/Full 1000baseT/Full 100baseT/Full)
+        │   │       │   firmware-revision: 0x80000389
+        │   │       │   software-revision: ixgbe 7.0.0-2-pve
+        │   │       │   serial: XXXXXX
+        │   │       │   alias: ifIndex.4
+        │   │       │   is-fru: false(2)
+        │   │       │   uris: "file:///sys/class/net/eno3_1 file:///sys/devices/pci0000:00/0000:00:01.0/0000:01:00.0"
+        │   │       │   alias-mapping: IF-MIB::ifIndex.4
+        │   │       │   │
+        │   │       │   └── .-1 [200043:other] ptp2
+        │   │       │       description: Precision Time Protocol clock, max adjustment 250000000 ppb, PPS
+        │   │       │       is-fru: false(2)
+        │   │       │       uris: "ptp:ptp2 file:///sys/class/ptp/ptp2 file:///sys/devices/pci0000:00/0000:00:01.0/0000:01:00.0/ptp/ptp2 file:///dev/ptp2"
+        │   │       │
+        │   │       └── .2 [200093:port] twisted pair (eno3_2)
+        │   │           description: Ethernet interface (10000baseT/Full 1000baseT/Full 100baseT/Full)
+        │   │           firmware-revision: 0x80000389
+        │   │           software-revision: ixgbe 7.0.0-2-pve
+        │   │           serial: XXXXXX
+        │   │           alias: ifIndex.5
+        │   │           is-fru: false(2)
+        │   │           uris: "file:///sys/class/net/eno3_2 file:///sys/devices/pci0000:00/0000:00:01.0/0000:01:00.1"
+        │   │           alias-mapping: IF-MIB::ifIndex.5
+        │   │           │
+        │   │           └── .-1 [200045:other] ptp3
+        │   │               description: Precision Time Protocol clock, max adjustment 250000000 ppb, PPS
+        │   │               is-fru: false(2)
+        │   │               uris: "ptp:ptp3 file:///sys/class/ptp/ptp3 file:///sys/devices/pci0000:00/0000:00:01.0/0000:01:00.1/ptp/ptp3 file:///dev/ptp3"
+        │   │
+        │   ├── .2 [1003:module] HD Graphics 630 (0000:00:02.0)
+        │   │   description: VGA compatible controller, x0 Unknown
+        │   │   hardware-revision: 0x04
+        │   │   software-revision: i915
+        │   │   manufacturer: Intel Corporation
+        │   │   is-fru: false(2)
+        │   │   uris: "file:///sys/bus/pci/devices/0000:00:02.0 file:///sys/devices/pci0000:00/0000:00:02.0 pci:0000:00:02.0"
+        │   │   │
+        │   │   ├── .3 [200050:backplane] i915 gmbus dpc (i2c-3)
+        │   │   │   description: I^2C bus: i915 gmbus dpc
+        │   │   │   is-fru: false(2)
+        │   │   │   uris: "i2c:i2c-3 file:///sys/devices/pci0000:00/0000:00:02.0/i2c-3 file:///dev/i2c-3"
+        │   │   │
+        │   │   ├── .6 [200052:backplane] AUX B/DDI B/PHY B (i2c-6)
+        │   │   │   description: I^2C bus: AUX B/DDI B/PHY B
+        │   │   │   is-fru: false(2)
+        │   │   │   uris: "i2c:i2c-6 file:///sys/devices/pci0000:00/0000:00:02.0/drm/card1/card1-DP-1/i2c-6 file:///dev/i2c-6"
+        │   │   │
+        │   │   ├── .4 [200053:backplane] i915 gmbus dpb (i2c-4)
+        │   │   │   description: I^2C bus: i915 gmbus dpb
+        │   │   │   is-fru: false(2)
+        │   │   │   uris: "i2c:i2c-4 file:///sys/devices/pci0000:00/0000:00:02.0/i2c-4 file:///dev/i2c-4"
+        │   │   │
+        │   │   ├── .7 [200066:backplane] AUX D/DDI D/PHY D (i2c-7)
+        │   │   │   description: I^2C bus: AUX D/DDI D/PHY D
+        │   │   │   is-fru: false(2)
+        │   │   │   uris: "i2c:i2c-7 file:///sys/devices/pci0000:00/0000:00:02.0/drm/card1/card1-DP-2/i2c-7 file:///dev/i2c-7"
+        │   │   │
+        │   │   ├── .5 [200067:backplane] i915 gmbus dpd (i2c-5)
+        │   │   │   description: I^2C bus: i915 gmbus dpd
+        │   │   │   is-fru: false(2)
+        │   │   │   uris: "i2c:i2c-5 file:///sys/devices/pci0000:00/0000:00:02.0/i2c-5 file:///dev/i2c-5"
+        │   │   │
+        │   │   └── .1 [200084:other] i915drmfb (fb0)
+        │   │       description: i915drmfb framebuffer U:1920x1080p-0, 32 bpp
+        │   │       is-fru: false(2)
+        │   │       uris: "file:///sys/class/graphics/fb0 file:///sys/devices/pci0000:00/0000:00:02.0/graphics/fb0 file:///dev/fb0 graphics:fb0"
+        │   │
+        │   ├── .20 [1004:module] 100 Series/C230 Series Chipset Family USB 3.0 xHCI Controller (0000:00:14.0)
+        │   │   description: USB controller
+        │   │   hardware-revision: 0x31
+        │   │   software-revision: xhci_hcd
+        │   │   manufacturer: Intel Corporation
+        │   │   is-fru: false(2)
+        │   │   uris: "file:///sys/bus/pci/devices/0000:00:14.0 file:///sys/devices/pci0000:00/0000:00:14.0 pci:0000:00:14.0"
+        │   │   │
+        │   │   ├── .2 [1005:module] 100 Series/C230 Series Chipset Family Thermal Subsystem (0000:00:14.2)
+        │   │   │   description: Signal processing controller
+        │   │   │   hardware-revision: 0x31
+        │   │   │   software-revision: intel_pch_thermal
+        │   │   │   manufacturer: Intel Corporation
+        │   │   │   is-fru: false(2)
+        │   │   │   uris: "file:///sys/bus/pci/devices/0000:00:14.2 file:///sys/devices/pci0000:00/0000:00:14.2 pci:0000:00:14.2"
+        │   │   │
+        │   │   ├── .1 [200010:container] usb1
+        │   │   │   description: USB  2.00 host, 480 Mbit/s
+        │   │   │   is-fru: false(2)
+        │   │   │   uris: "usb:usb1 file:///sys/bus/pci/devices/0000:00:14.0/usb1"
+        │   │   │   │
+        │   │   │   ├── .3 [200000:module] Multifunction USB Device (bus/usb/001/003)
+        │   │   │   │   description: Human interface device, 480 Mbit/s, removable
+        │   │   │   │   hardware-revision: 0100
+        │   │   │   │   serial: XXXXXX
+        │   │   │   │   manufacturer: BliKVM
+        │   │   │   │   is-fru: true(1)
+        │   │   │   │   uris: "usb:1-12 file:///sys/bus/usb/devices/1-12 file:///dev/bus/usb/001/003 usb://001/003 usb:v1d6bp0106:6b65796d696d6570690"
+        │   │   │   │   │
+        │   │   │   │   ├── .1 [200047:other] BliKVM Multifunction USB Device (js0)
+        │   │   │   │   │   description: Keyboard input device
+        │   │   │   │   │   serial: XXXXXX
+        │   │   │   │   │   is-fru: false(2)
+        │   │   │   │   │   uris: "input:js0 file:///sys/class/input/js0 file:///sys/devices/pci0000:00/0000:00:14.0/usb1/1-12/1-12:1.1/0003:1D6B:0106.0003/input/input4/js0 file:///dev/input/js0"
+        │   │   │   │   │
+        │   │   │   │   ├── .2 [200048:other] BliKVM Multifunction USB Device (mouse0)
+        │   │   │   │   │   description: Mouse input device
+        │   │   │   │   │   serial: XXXXXX
+        │   │   │   │   │   is-fru: false(2)
+        │   │   │   │   │   uris: "input:mouse0 file:///sys/class/input/mouse0 file:///sys/devices/pci0000:00/0000:00:14.0/usb1/1-12/1-12:1.1/0003:1D6B:0106.0003/input/input4/mouse0 file:///dev/input/mouse0"
+        │   │   │   │   │
+        │   │   │   │   └── .3 [200049:other] BliKVM Multifunction USB Device (mouse1)
+        │   │   │   │       description: Mouse input device
+        │   │   │   │       serial: XXXXXX
+        │   │   │   │       is-fru: false(2)
+        │   │   │   │       uris: "input:mouse1 file:///sys/class/input/mouse1 file:///sys/devices/pci0000:00/0000:00:14.0/usb1/1-12/1-12:1.2/0003:1D6B:0106.0004/input/input5/mouse1 file:///dev/input/mouse1"
+        │   │   │   │
+        │   │   │   └── .2 [200001:module] Eaton 3S (bus/usb/001/002)
+        │   │   │       description: Human interface device, 1 Mbit/s, removable
+        │   │   │       hardware-revision: 0100
+        │   │   │       serial: XXXXXX
+        │   │   │       manufacturer: EATON
+        │   │   │       is-fru: true(1)
+        │   │   │       uris: "usb:1-11 file:///sys/bus/usb/devices/1-11 file:///dev/bus/usb/001/002 usb://001/002 usb:v0463pffff:000000000"
+        │   │   │
+        │   │   └── .2 [200012:container] usb2
+        │   │       description: USB  3.00 host, 5 Gbit/s
+        │   │       is-fru: false(2)
+        │   │       uris: "usb:usb2 file:///sys/bus/pci/devices/0000:00:14.0/usb2"
+        │   │
+        │   ├── .21 [1006:module] 100 Series/C230 Series Chipset Family Serial IO I2C Controller #0 (0000:00:15.0)
+        │   │   description: Signal processing controller
+        │   │   hardware-revision: 0x31
+        │   │   software-revision: intel-lpss
+        │   │   manufacturer: Intel Corporation
+        │   │   is-fru: false(2)
+        │   │   uris: "file:///sys/bus/pci/devices/0000:00:15.0 file:///sys/devices/pci0000:00/0000:00:15.0 pci:0000:00:15.0"
+        │   │   │
+        │   │   ├── .1 [1007:module] 100 Series/C230 Series Chipset Family Serial IO I2C Controller #1 (0000:00:15.1)
+        │   │   │   description: Signal processing controller
+        │   │   │   hardware-revision: 0x31
+        │   │   │   software-revision: intel-lpss
+        │   │   │   manufacturer: Intel Corporation
+        │   │   │   is-fru: false(2)
+        │   │   │   uris: "file:///sys/bus/pci/devices/0000:00:15.1 file:///sys/devices/pci0000:00/0000:00:15.1 pci:0000:00:15.1"
+        │   │   │   │
+        │   │   │   └── .2 [200054:backplane] Synopsys DesignWare I2C adapter (i2c-2)
+        │   │   │       description: I^2C bus: Synopsys DesignWare I2C adapter
+        │   │   │       is-fru: false(2)
+        │   │   │       uris: "i2c:i2c-2 file:///sys/devices/pci0000:00/0000:00:15.1/i2c_designware.1/i2c-2 file:///dev/i2c-2"
+        │   │   │
+        │   │   └── .1 [200051:backplane] Synopsys DesignWare I2C adapter (i2c-1)
+        │   │       description: I^2C bus: Synopsys DesignWare I2C adapter
+        │   │       is-fru: false(2)
+        │   │       uris: "i2c:i2c-1 file:///sys/devices/pci0000:00/0000:00:15.0/i2c_designware.0/i2c-1 file:///dev/i2c-1"
+        │   │
+        │   ├── .22 [1008:module] 100 Series/C230 Series Chipset Family MEI Controller #1 (0000:00:16.0)
+        │   │   description: Communication controller
+        │   │   hardware-revision: 0x31
+        │   │   software-revision: mei_me
+        │   │   manufacturer: Intel Corporation
+        │   │   is-fru: false(2)
+        │   │   uris: "file:///sys/bus/pci/devices/0000:00:16.0 file:///sys/devices/pci0000:00/0000:00:16.0 pci:0000:00:16.0"
+        │   │   │
+        │   │   └── .3 [1009:module] 100 Series/C230 Series Chipset Family KT Redirection (0000:00:16.3)
+        │   │       description: Serial controller
+        │   │       hardware-revision: 0x31
+        │   │       software-revision: serial
+        │   │       manufacturer: Intel Corporation
+        │   │       is-fru: false(2)
+        │   │       uris: "file:///sys/bus/pci/devices/0000:00:16.3 file:///sys/devices/pci0000:00/0000:00:16.3 pci:0000:00:16.3"
+        │   │
+        │   ├── .23 [1010:module] Q170/Q150/B150/H170/H110/Z170/CM236 Chipset SATA Controller [AHCI Mode] (0000:00:17.0)
+        │   │   description: SATA controller
+        │   │   hardware-revision: 0x31
+        │   │   software-revision: ahci
+        │   │   manufacturer: Intel Corporation
+        │   │   is-fru: false(2)
+        │   │   uris: "file:///sys/bus/pci/devices/0000:00:17.0 file:///sys/devices/pci0000:00/0000:00:17.0 pci:0000:00:17.0"
+        │   │   │
+        │   │   ├── .1 [1501:container] ata1
+        │   │   │   description: SATA port 1 (6.0 Gbps)
+        │   │   │   is-fru: false(2)
+        │   │   │   uris: "ata:1"
+        │   │   │   │
+        │   │   │   └── .1 [200008:storageDrive] SAMSUNG MZ7LH960 (sda)
+        │   │   │       description: Solid-state disk (894.3GiB)
+        │   │   │       firmware-revision: B04Q
+        │   │   │       serial: XXXXXX
+        │   │   │       manufacturer: ATA
+        │   │   │       is-fru: true(1)
+        │   │   │       uris: "file:///sys/block/sda file:///dev/sda file:///dev/disk/by-id/Redacted file:///dev/disk/by-id/Redacted file:///sys/devices/pci0000:00/0000:00:17.0/ata1/host0/target0:0:0/0:0:0:0 ata:1 scsi:0:0:0:0"
+        │   │   │       alias-mapping: UCD-DISKIO-MIB::diskIOIndex.9
+        │   │   │
+        │   │   ├── .2 [1502:container] ata2
+        │   │   │   description: SATA port 2 (6.0 Gbps)
+        │   │   │   is-fru: false(2)
+        │   │   │   uris: "ata:2"
+        │   │   │   │
+        │   │   │   └── .1 [200004:storageDrive] SAMSUNG MZ7LH960 (sdb)
+        │   │   │       description: Solid-state disk (894.3GiB)
+        │   │   │       firmware-revision: B04Q
+        │   │   │       serial: XXXXXX
+        │   │   │       manufacturer: ATA
+        │   │   │       is-fru: true(1)
+        │   │   │       uris: "file:///sys/block/sdb file:///dev/sdb file:///dev/disk/by-id/Redacted file:///dev/disk/by-id/Redacted file:///sys/devices/pci0000:00/0000:00:17.0/ata2/host1/target1:0:0/1:0:0:0 ata:2 scsi:1:0:0:0"
+        │   │   │       alias-mapping: UCD-DISKIO-MIB::diskIOIndex.15
+        │   │   │
+        │   │   ├── .3 [1503:container] ata3
+        │   │   │   description: SATA port 3 (6.0 Gbps)
+        │   │   │   is-fru: false(2)
+        │   │   │   uris: "ata:3"
+        │   │   │   │
+        │   │   │   └── .1 [200007:storageDrive] ST16000NM000J-2T (sdc)
+        │   │   │       description: Hard disk (14.6TiB)
+        │   │   │       firmware-revision: SN02
+        │   │   │       serial: XXXXXX
+        │   │   │       manufacturer: ATA
+        │   │   │       is-fru: true(1)
+        │   │   │       uris: "file:///sys/block/sdc file:///dev/sdc file:///dev/disk/by-id/Redacted file:///dev/disk/by-id/Redacted file:///sys/devices/pci0000:00/0000:00:17.0/ata3/host2/target2:0:0/2:0:0:0 ata:3 scsi:2:0:0:0 naa.5000c500e32d507e"
+        │   │   │       alias-mapping: UCD-DISKIO-MIB::diskIOIndex.21
+        │   │   │
+        │   │   ├── .4 [1504:container] ata4
+        │   │   │   description: SATA port 4
+        │   │   │   is-fru: false(2)
+        │   │   │   uris: "ata:4"
+        │   │   │
+        │   │   ├── .5 [1505:container] ata5
+        │   │   │   description: SATA port 5 (6.0 Gbps)
+        │   │   │   is-fru: false(2)
+        │   │   │   uris: "ata:5"
+        │   │   │   │
+        │   │   │   └── .1 [200003:storageDrive] WDC WD140EFGX-68 (sdd)
+        │   │   │       description: Hard disk (12.7TiB)
+        │   │   │       firmware-revision: 0A85
+        │   │   │       serial: XXXXXX
+        │   │   │       manufacturer: ATA
+        │   │   │       is-fru: true(1)
+        │   │   │       uris: "file:///sys/block/sdd file:///dev/sdd file:///dev/disk/by-id/Redacted file:///dev/disk/by-id/Redacted file:///sys/devices/pci0000:00/0000:00:17.0/ata5/host4/target4:0:0/4:0:0:0 ata:5 scsi:4:0:0:0"
+        │   │   │       alias-mapping: UCD-DISKIO-MIB::diskIOIndex.22
+        │   │   │
+        │   │   ├── .6 [1506:container] ata6
+        │   │   │   description: SATA port 6 (6.0 Gbps)
+        │   │   │   is-fru: false(2)
+        │   │   │   uris: "ata:6"
+        │   │   │   │
+        │   │   │   └── .1 [200006:storageDrive] ST16000NM000J-2T (sde)
+        │   │   │       description: Hard disk (14.6TiB)
+        │   │   │       firmware-revision: SN02
+        │   │   │       serial: XXXXXX
+        │   │   │       manufacturer: ATA
+        │   │   │       is-fru: true(1)
+        │   │   │       uris: "file:///sys/block/sde file:///dev/sde file:///dev/disk/by-id/Redacted file:///dev/disk/by-id/Redacted file:///sys/devices/pci0000:00/0000:00:17.0/ata6/host5/target5:0:0/5:0:0:0 ata:6 scsi:5:0:0:0 naa.5000c500e47a9fda"
+        │   │   │       alias-mapping: UCD-DISKIO-MIB::diskIOIndex.23
+        │   │   │
+        │   │   ├── .7 [1507:container] ata7
+        │   │   │   description: SATA port 7 (6.0 Gbps)
+        │   │   │   is-fru: false(2)
+        │   │   │   uris: "ata:7"
+        │   │   │   │
+        │   │   │   └── .1 [200002:storageDrive] ST16000NM000J-2T (sdf)
+        │   │   │       description: Hard disk (14.6TiB)
+        │   │   │       firmware-revision: SN02
+        │   │   │       serial: XXXXXX
+        │   │   │       manufacturer: ATA
+        │   │   │       is-fru: true(1)
+        │   │   │       uris: "file:///sys/block/sdf file:///dev/sdf file:///dev/disk/by-id/Redacted file:///dev/disk/by-id/Redacted file:///sys/devices/pci0000:00/0000:00:17.0/ata7/host6/target6:0:0/6:0:0:0 ata:7 scsi:6:0:0:0 naa.5000c500e3a37cde"
+        │   │   │       alias-mapping: UCD-DISKIO-MIB::diskIOIndex.24
+        │   │   │
+        │   │   └── .8 [1508:container] ata8
+        │   │       description: SATA port 8 (6.0 Gbps)
+        │   │       is-fru: false(2)
+        │   │       uris: "ata:8"
+        │   │       │
+        │   │       └── .1 [200005:storageDrive] WDC WD140EFGX-68 (sdg)
+        │   │           description: Hard disk (12.7TiB)
+        │   │           firmware-revision: 0A85
+        │   │           serial: XXXXXX
+        │   │           manufacturer: ATA
+        │   │           is-fru: true(1)
+        │   │           uris: "file:///sys/block/sdg file:///dev/sdg file:///dev/disk/by-id/Redacted file:///dev/disk/by-id/Redacted file:///sys/devices/pci0000:00/0000:00:17.0/ata8/host7/target7:0:0/7:0:0:0 ata:8 scsi:7:0:0:0"
+        │   │           alias-mapping: UCD-DISKIO-MIB::diskIOIndex.25
+        │   │
+        │   ├── .28 [1011:container] 100 Series/C230 Series Chipset Family PCI Express Root Port #1 (0000:00:1c.0)
+        │   │   description: PCI bridge, x0 2.5 GT/s PCIe
+        │   │   hardware-revision: 0xf1
+        │   │   software-revision: pcieport
+        │   │   manufacturer: Intel Corporation
+        │   │   is-fru: false(2)
+        │   │   uris: "file:///sys/bus/pci/devices/0000:00:1c.0 file:///sys/devices/pci0000:00/0000:00:1c.0 pci:0000:00:1c.0"
+        │   │   │
+        │   │   ├── .5 [1012:container] 100 Series/C230 Series Chipset Family PCI Express Root Port #6 (0000:00:1c.5)
+        │   │   │   description: PCI bridge, x1 2.5 GT/s PCIe
+        │   │   │   hardware-revision: 0xf1
+        │   │   │   software-revision: pcieport
+        │   │   │   manufacturer: Intel Corporation
+        │   │   │   is-fru: false(2)
+        │   │   │   uris: "file:///sys/bus/pci/devices/0000:00:1c.5 file:///sys/devices/pci0000:00/0000:00:1c.5 pci:0000:00:1c.5"
+        │   │   │   │
+        │   │   │   └── .5 [200089:module] I210 Gigabit Network Connection (0000:03:00.0)
+        │   │   │       description: Ethernet controller, x1 2.5 GT/s PCIe
+        │   │   │       hardware-revision: 0x03
+        │   │   │       software-revision: igb
+        │   │   │       manufacturer: Intel Corporation
+        │   │   │       is-fru: false(2)
+        │   │   │       uris: "file:///sys/bus/pci/devices/0000:03:00.0 file:///sys/devices/pci0000:00/0000:00:1c.5/0000:03:00.0 pcislot:0000:03:00"
+        │   │   │       │
+        │   │   │       └── .1 [200092:port] twisted pair (eno2)
+        │   │   │           description: Ethernet interface (1000baseT/Full 100baseT/Full 100baseT/Half 10baseT/Full 10baseT/Half)
+        │   │   │           firmware-revision: 3.25, 0x800005d0
+        │   │   │           software-revision: igb 7.0.0-2-pve
+        │   │   │           serial: XXXXXX
+        │   │   │           alias: ifIndex.2
+        │   │   │           is-fru: false(2)
+        │   │   │           uris: "file:///sys/class/net/eno2 file:///sys/devices/pci0000:00/0000:00:1c.5/0000:03:00.0"
+        │   │   │           alias-mapping: IF-MIB::ifIndex.2
+        │   │   │           │
+        │   │   │           └── .-1 [200044:other] ptp0
+        │   │   │               description: Precision Time Protocol clock, max adjustment 62499999 ppb, PPS
+        │   │   │               is-fru: false(2)
+        │   │   │               uris: "ptp:ptp0 file:///sys/class/ptp/ptp0 file:///sys/devices/pci0000:00/0000:00:1c.5/0000:03:00.0/ptp/ptp0 file:///dev/ptp0"
+        │   │   │
+        │   │   ├── .6 [1013:container] 100 Series/C230 Series Chipset Family PCI Express Root Port #7 (0000:00:1c.6)
+        │   │   │   description: PCI bridge, x1 2.5 GT/s PCIe
+        │   │   │   hardware-revision: 0xf1
+        │   │   │   software-revision: pcieport
+        │   │   │   manufacturer: Intel Corporation
+        │   │   │   is-fru: false(2)
+        │   │   │   uris: "file:///sys/bus/pci/devices/0000:00:1c.6 file:///sys/devices/pci0000:00/0000:00:1c.6 pci:0000:00:1c.6"
+        │   │   │   │
+        │   │   │   └── .6 [1024:container] 89HPEB383 PCIe-to-PCI Bridge (0000:04:00.0)
+        │   │   │       description: PCI bridge
+        │   │   │       hardware-revision: 0x01
+        │   │   │       manufacturer: Tundra Semiconductor Corp.
+        │   │   │       is-fru: false(2)
+        │   │   │       uris: "file:///sys/bus/pci/devices/0000:04:00.0 file:///sys/devices/pci0000:00/0000:00:1c.6/0000:04:00.0 pci:0000:04:00.0"
+        │   │   │
+        │   │   └── .7 [1014:container] 100 Series/C230 Series Chipset Family PCI Express Root Port #8 (0000:00:1c.7)
+        │   │       description: PCI bridge, x1 8.0 GT/s PCIe
+        │   │       hardware-revision: 0xf1
+        │   │       software-revision: pcieport
+        │   │       manufacturer: Intel Corporation
+        │   │       is-fru: false(2)
+        │   │       uris: "file:///sys/bus/pci/devices/0000:00:1c.7 file:///sys/devices/pci0000:00/0000:00:1c.7 pci:0000:00:1c.7"
+        │   │       │
+        │   │       └── .7 [1025:module] ASM1142 USB 3.1 Host Controller (0000:06:00.0)
+        │   │           description: USB controller, x1 8.0 GT/s PCIe
+        │   │           hardware-revision: 0x00
+        │   │           software-revision: xhci_hcd
+        │   │           manufacturer: ASMedia Technology Inc.
+        │   │           is-fru: false(2)
+        │   │           uris: "file:///sys/bus/pci/devices/0000:06:00.0 file:///sys/devices/pci0000:00/0000:00:1c.7/0000:06:00.0 pci:0000:06:00.0"
+        │   │           │
+        │   │           ├── .1 [200009:container] usb3
+        │   │           │   description: USB  2.00 host, 480 Mbit/s
+        │   │           │   is-fru: false(2)
+        │   │           │   uris: "usb:usb3 file:///sys/bus/pci/devices/0000:06:00.0/usb3"
+        │   │           │
+        │   │           └── .2 [200011:container] usb4
+        │   │               description: USB  3.10 host, 10 Gbit/s
+        │   │               is-fru: false(2)
+        │   │               uris: "usb:usb4 file:///sys/bus/pci/devices/0000:06:00.0/usb4"
+        │   │
+        │   ├── .29 [1015:container] 100 Series/C230 Series Chipset Family PCI Express Root Port #9 (0000:00:1d.0)
+        │   │   description: PCI bridge, x4 8.0 GT/s PCIe
+        │   │   hardware-revision: 0xf1
+        │   │   software-revision: pcieport
+        │   │   manufacturer: Intel Corporation
+        │   │   is-fru: false(2)
+        │   │   uris: "file:///sys/bus/pci/devices/0000:00:1d.0 file:///sys/devices/pci0000:00/0000:00:1d.0 pci:0000:00:1d.0"
+        │   │   │
+        │   │   └── .0 [1026:storageDrive] Samsung SSD 970 EVO Plus 1TB (nvme0)
+        │   │       description: NVMe solid-state disk (931.5GiB)
+        │   │       hardware-revision: 0x00
+        │   │       firmware-revision: 2B2QEXM7
+        │   │       software-revision: nvme
+        │   │       serial: XXXXXX
+        │   │       manufacturer: Samsung Electronics Co Ltd
+        │   │       is-fru: false(2)
+        │   │       uris: "nvme:nvme0 file:///sys/class/nvme/nvme0 file:///dev/nvme0 file:///sys/block/nvme0n1 file:///dev/nvme0n1 file:///dev/disk/by-id/Redacted file:///dev/disk/by-id/Redacted"
+        │   │       alias-mapping: UCD-DISKIO-MIB::diskIOIndex.26
+        │   │       │
+        │   │       └── .-1 [5740:other] nvme (hwmon1)
+        │   │           description: NVMe thermal monitor
+        │   │           is-fru: false(2)
+        │   │           uris: "file:///sys/class/hwmon/hwmon1 file:///sys/devices/pci0000:00/0000:00:1d.0/0000:07:00.0/nvme/nvme0/hwmon1"
+        │   │           │
+        │   │           ├── .1 [5741:sensor] temp1
+        │   │           │   description: Temperature sensor: Composite
+        │   │           │   is-fru: false(2)
+        │   │           │   uris: "file:///sys/class/hwmon/hwmon1/temp1_input file:///sys/devices/pci0000:00/0000:00:1d.0/0000:07:00.0/nvme/nvme0/hwmon1/temp1_input"
+        │   │           │   alias-mapping: LM-SENSORS-MIB::lmTempSensorsIndex.11
+        │   │           │
+        │   │           ├── .2 [5742:sensor] temp2
+        │   │           │   description: Temperature sensor: Sensor 1
+        │   │           │   is-fru: false(2)
+        │   │           │   uris: "file:///sys/class/hwmon/hwmon1/temp2_input file:///sys/devices/pci0000:00/0000:00:1d.0/0000:07:00.0/nvme/nvme0/hwmon1/temp2_input"
+        │   │           │   alias-mapping: LM-SENSORS-MIB::lmTempSensorsIndex.12
+        │   │           │
+        │   │           └── .3 [5743:sensor] temp3
+        │   │               description: Temperature sensor: Sensor 2
+        │   │               is-fru: false(2)
+        │   │               uris: "file:///sys/class/hwmon/hwmon1/temp3_input file:///sys/devices/pci0000:00/0000:00:1d.0/0000:07:00.0/nvme/nvme0/hwmon1/temp3_input"
+        │   │               alias-mapping: LM-SENSORS-MIB::lmTempSensorsIndex.13
+        │   │
+        │   └── .31 [1016:container] C236 Chipset LPC/eSPI Controller (0000:00:1f.0)
+        │       description: ISA bridge
+        │       hardware-revision: 0x31
+        │       manufacturer: Intel Corporation
+        │       is-fru: false(2)
+        │       uris: "file:///sys/bus/pci/devices/0000:00:1f.0 file:///sys/devices/pci0000:00/0000:00:1f.0 pci:0000:00:1f.0"
+        │       │
+        │       ├── .2 [1017:module] 100 Series/C230 Series Chipset Family Power Management Controller (0000:00:1f.2)
+        │       │   description: Memory controller
+        │       │   hardware-revision: 0x31
+        │       │   manufacturer: Intel Corporation
+        │       │   is-fru: false(2)
+        │       │   uris: "file:///sys/bus/pci/devices/0000:00:1f.2 file:///sys/devices/pci0000:00/0000:00:1f.2 pci:0000:00:1f.2"
+        │       │
+        │       ├── .3 [1018:module] 100 Series/C230 Series Chipset Family HD Audio Controller (0000:00:1f.3)
+        │       │   description: Audio device
+        │       │   hardware-revision: 0x31
+        │       │   software-revision: snd_hda_intel
+        │       │   manufacturer: Intel Corporation
+        │       │   is-fru: false(2)
+        │       │   uris: "file:///sys/bus/pci/devices/0000:00:1f.3 file:///sys/devices/pci0000:00/0000:00:1f.3 pci:0000:00:1f.3"
+        │       │
+        │       ├── .4 [1019:module] 100 Series/C230 Series Chipset Family SMBus (0000:00:1f.4)
+        │       │   description: SMBus
+        │       │   hardware-revision: 0x31
+        │       │   software-revision: i801_smbus
+        │       │   manufacturer: Intel Corporation
+        │       │   is-fru: false(2)
+        │       │   uris: "file:///sys/bus/pci/devices/0000:00:1f.4 file:///sys/devices/pci0000:00/0000:00:1f.4 pci:0000:00:1f.4"
+        │       │   │
+        │       │   └── .0 [200055:backplane] SMBus I801 adapter at 0000:00:1f.4 (i2c-0)
+        │       │       description: I^2C bus: SMBus I801 adapter at 0000:00:1f.4
+        │       │       is-fru: false(2)
+        │       │       uris: "i2c:i2c-0 file:///sys/devices/pci0000:00/0000:00:1f.4/i2c-0 file:///dev/i2c-0"
+        │       │       │
+        │       │       ├── .82 [200056:module] ee1004 (0-0052)
+        │       │       │   description: ee1004
+        │       │       │   is-fru: false(2)
+        │       │       │   uris: "i2c:0-0052 file:///sys/devices/pci0000:00/0000:00:1f.4/i2c-0/0-0052"
+        │       │       │
+        │       │       ├── .27 [200057:module] jc42 (0-001b)
+        │       │       │   description: jc42
+        │       │       │   is-fru: false(2)
+        │       │       │   uris: "i2c:0-001b file:///sys/devices/pci0000:00/0000:00:1f.4/i2c-0/0-001b"
+        │       │       │   │
+        │       │       │   └── .-1 [7120:other] jc42 (hwmon6)
+        │       │       │       description: Hardware monitor
+        │       │       │       is-fru: false(2)
+        │       │       │       uris: "file:///sys/class/hwmon/hwmon6 file:///sys/devices/pci0000:00/0000:00:1f.4/i2c-0/0-001b/hwmon/hwmon6"
+        │       │       │       │
+        │       │       │       └── .1 [7121:sensor] temp1
+        │       │       │           description: Temperature sensor: temp1
+        │       │       │           is-fru: false(2)
+        │       │       │           uris: "file:///sys/class/hwmon/hwmon6/temp1_input file:///sys/devices/pci0000:00/0000:00:1f.4/i2c-0/0-001b/hwmon/hwmon6/temp1_input"
+        │       │       │           alias-mapping: LM-SENSORS-MIB::lmTempSensorsIndex.1
+        │       │       │
+        │       │       ├── .80 [200058:module] ee1004 (0-0050)
+        │       │       │   description: ee1004
+        │       │       │   is-fru: false(2)
+        │       │       │   uris: "i2c:0-0050 file:///sys/devices/pci0000:00/0000:00:1f.4/i2c-0/0-0050"
+        │       │       │
+        │       │       ├── .25 [200059:module] jc42 (0-0019)
+        │       │       │   description: jc42
+        │       │       │   is-fru: false(2)
+        │       │       │   uris: "i2c:0-0019 file:///sys/devices/pci0000:00/0000:00:1f.4/i2c-0/0-0019"
+        │       │       │   │
+        │       │       │   └── .-1 [7860:other] jc42 (hwmon4)
+        │       │       │       description: Hardware monitor
+        │       │       │       is-fru: false(2)
+        │       │       │       uris: "file:///sys/class/hwmon/hwmon4 file:///sys/devices/pci0000:00/0000:00:1f.4/i2c-0/0-0019/hwmon/hwmon4"
+        │       │       │       │
+        │       │       │       └── .1 [7861:sensor] temp1
+        │       │       │           description: Temperature sensor: temp1
+        │       │       │           is-fru: false(2)
+        │       │       │           uris: "file:///sys/class/hwmon/hwmon4/temp1_input file:///sys/devices/pci0000:00/0000:00:1f.4/i2c-0/0-0019/hwmon/hwmon4/temp1_input"
+        │       │       │           alias-mapping: LM-SENSORS-MIB::lmTempSensorsIndex.2
+        │       │       │
+        │       │       ├── .83 [200061:module] ee1004 (0-0053)
+        │       │       │   description: ee1004
+        │       │       │   is-fru: false(2)
+        │       │       │   uris: "i2c:0-0053 file:///sys/devices/pci0000:00/0000:00:1f.4/i2c-0/0-0053"
+        │       │       │
+        │       │       ├── .81 [200062:module] ee1004 (0-0051)
+        │       │       │   description: ee1004
+        │       │       │   is-fru: false(2)
+        │       │       │   uris: "i2c:0-0051 file:///sys/devices/pci0000:00/0000:00:1f.4/i2c-0/0-0051"
+        │       │       │
+        │       │       ├── .26 [200063:module] jc42 (0-001a)
+        │       │       │   description: jc42
+        │       │       │   is-fru: false(2)
+        │       │       │   uris: "i2c:0-001a file:///sys/devices/pci0000:00/0000:00:1f.4/i2c-0/0-001a"
+        │       │       │   │
+        │       │       │   └── .-1 [5400:other] jc42 (hwmon5)
+        │       │       │       description: Hardware monitor
+        │       │       │       is-fru: false(2)
+        │       │       │       uris: "file:///sys/class/hwmon/hwmon5 file:///sys/devices/pci0000:00/0000:00:1f.4/i2c-0/0-001a/hwmon/hwmon5"
+        │       │       │       │
+        │       │       │       └── .1 [5401:sensor] temp1
+        │       │       │           description: Temperature sensor: temp1
+        │       │       │           is-fru: false(2)
+        │       │       │           uris: "file:///sys/class/hwmon/hwmon5/temp1_input file:///sys/devices/pci0000:00/0000:00:1f.4/i2c-0/0-001a/hwmon/hwmon5/temp1_input"
+        │       │       │           alias-mapping: LM-SENSORS-MIB::lmTempSensorsIndex.9
+        │       │       │
+        │       │       └── .24 [200064:module] jc42 (0-0018)
+        │       │           description: jc42
+        │       │           is-fru: false(2)
+        │       │           uris: "i2c:0-0018 file:///sys/devices/pci0000:00/0000:00:1f.4/i2c-0/0-0018"
+        │       │           │
+        │       │           └── .-1 [8420:other] jc42 (hwmon3)
+        │       │               description: Hardware monitor
+        │       │               is-fru: false(2)
+        │       │               uris: "file:///sys/class/hwmon/hwmon3 file:///sys/devices/pci0000:00/0000:00:1f.4/i2c-0/0-0018/hwmon/hwmon3"
+        │       │               │
+        │       │               └── .1 [8421:sensor] temp1
+        │       │                   description: Temperature sensor: temp1
+        │       │                   is-fru: false(2)
+        │       │                   uris: "file:///sys/class/hwmon/hwmon3/temp1_input file:///sys/devices/pci0000:00/0000:00:1f.4/i2c-0/0-0018/hwmon/hwmon3/temp1_input"
+        │       │                   alias-mapping: LM-SENSORS-MIB::lmTempSensorsIndex.10
+        │       │
+        │       ├── .-1 [6200:other] pch_skylake (hwmon2)
+        │       │   description: Platform Controller Hub
+        │       │   is-fru: false(2)
+        │       │   uris: "file:///sys/class/hwmon/hwmon2 file:///sys/devices/virtual/thermal/thermal_zone2/hwmon2"
+        │       │   │
+        │       │   └── .1 [6201:sensor] temp1
+        │       │       description: Temperature sensor: temp1
+        │       │       is-fru: false(2)
+        │       │       uris: "file:///sys/class/hwmon/hwmon2/temp1_input file:///sys/devices/virtual/thermal/thermal_zone2/hwmon2/temp1_input"
+        │       │       alias-mapping: LM-SENSORS-MIB::lmTempSensorsIndex.3
+        │       │
+        │       └── .6 [200088:module] Ethernet Connection (2) I219-LM (0000:00:1f.6)
+        │           description: Ethernet controller
+        │           hardware-revision: 0x31
+        │           software-revision: e1000e
+        │           manufacturer: Intel Corporation
+        │           is-fru: false(2)
+        │           uris: "file:///sys/bus/pci/devices/0000:00:1f.6 file:///sys/devices/pci0000:00/0000:00:1f.6 pcislot:0000:00:1f"
+        │           │
+        │           └── .1 [200090:port] twisted pair (eno1)
+        │               description: Ethernet interface (1000baseT/Full 100baseT/Full 100baseT/Half 10baseT/Full 10baseT/Half)
+        │               firmware-revision: 0.7-4
+        │               software-revision: e1000e 7.0.0-2-pve
+        │               serial: XXXXXX
+        │               alias: ifIndex.3
+        │               is-fru: false(2)
+        │               uris: "file:///sys/class/net/eno1 file:///sys/devices/pci0000:00/0000:00:1f.6"
+        │               alias-mapping: IF-MIB::ifIndex.3
+        │               │
+        │               └── .-1 [200046:other] ptp1
+        │                   description: Precision Time Protocol clock, max adjustment 999999999 ppb
+        │                   is-fru: false(2)
+        │                   uris: "ptp:ptp1 file:///sys/class/ptp/ptp1 file:///sys/devices/pci0000:00/0000:00:1f.6/ptp/ptp1 file:///dev/ptp1"
+        │
+        ├── .-1 [2400:module] rtc_cmos (rtc0)
+        │   description: System CMOS/Real Time Clock
+        │   is-fru: false(2)
+        │   uris: "file:///sys/class/rtc/rtc0 file:///sys/devices/pnp0/00:01/rtc/rtc0 rtc:rtc0"
+        │
+        └── .-1 [2500:container] LNXSYSTM:00
+            description: ACPI system
+            is-fru: false(2)
+            uris: "file:///sys/bus/acpi/devices/LNXSYSTM:00 file:///sys/devices/LNXSYSTM:00 acpi:LNXSYSTM:00"
+            │
+            ├── .0 [2510:backplane] LNXSYBUS:00
+            │   description: ACPI system bus \_SB_
+            │   is-fru: false(2)
+            │   uris: "file:///sys/bus/acpi/devices/LNXSYBUS:00 file:///sys/devices/LNXSYSTM:00/LNXSYBUS:00 acpi:LNXSYBUS:00"
+            │
+            └── .1 [2511:backplane] LNXSYBUS:01
+                description: ACPI system bus \_TZ_
+                is-fru: false(2)
+                uris: "file:///sys/bus/acpi/devices/LNXSYBUS:01 file:///sys/devices/LNXSYSTM:00/LNXSYBUS:01 acpi:LNXSYBUS:01"
+                │
+                ├── .0 [2600:other] acpitz (thermal_zone0)
+                │   description: ACPI thermal zone 0 (acpitz)
+                │   is-fru: false(2)
+                │   uris: "file:///sys/class/thermal/thermal_zone0 file:///sys/devices/virtual/thermal/thermal_zone0 file:///sys/devices/LNXSYSTM:00/LNXSYBUS:01/LNXTHERM:00 thermal:thermal_zone0"
+                │   │
+                │   └── .-1 [4860:other] acpitz (hwmon0)
+                │       description: Hardware monitor
+                │       is-fru: false(2)
+                │       uris: "file:///sys/class/hwmon/hwmon0 file:///sys/devices/virtual/thermal/thermal_zone0/hwmon0"
+                │       │
+                │       ├── .1 [4861:sensor] temp1
+                │       │   description: Temperature sensor: temp1
+                │       │   is-fru: false(2)
+                │       │   uris: "file:///sys/class/hwmon/hwmon0/temp1_input file:///sys/devices/virtual/thermal/thermal_zone0/hwmon0/temp1_input"
+                │       │   alias-mapping: LM-SENSORS-MIB::lmTempSensorsIndex.4
+                │       │
+                │       └── .2 [4862:sensor] temp2
+                │           description: Temperature sensor: temp2
+                │           is-fru: false(2)
+                │           uris: "file:///sys/class/hwmon/hwmon0/temp2_input file:///sys/devices/virtual/thermal/thermal_zone0/hwmon0/temp2_input"
+                │           alias-mapping: LM-SENSORS-MIB::lmTempSensorsIndex.5
+                │
+                └── .1 [2601:other] acpitz (thermal_zone1)
+                    description: ACPI thermal zone 1 (acpitz)
+                    is-fru: false(2)
+                    uris: "file:///sys/class/thermal/thermal_zone1 file:///sys/devices/virtual/thermal/thermal_zone1 file:///sys/devices/LNXSYSTM:00/LNXSYBUS:01/LNXTHERM:01 thermal:thermal_zone1"
+

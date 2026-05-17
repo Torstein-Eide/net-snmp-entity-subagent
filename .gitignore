@@ -1,5 +1,8 @@
 entity_subagent
 entity_subagent.o
+entity_subagent.d
 agent
 snmplib
 include
+snmpwalk-servers.sh
+.*
